@@ -17,3 +17,11 @@ function singleRound(playerSelection,computerSelection){
         return `You won! ${playerSelection} beats ${computerSelection}`;
     }
 }
+
+function game(){
+    for (let i = 0; i < 5; i++) {
+        playerSelection=prompt('Rock, paper, scissors?');
+        computerSelection=computerPlay();
+        console.log(singleRound(playerSelection,computerSelection));        
+    }
+}
