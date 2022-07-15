@@ -1,0 +1,84 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'VT323', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background: url('2f670ab5cc8dd84.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+div{
+    font-size: 45px;
+}
+h1{
+    font-size: 45px;
+}
+h2{
+    font-size: 40px;
+}
+h3{
+    font-size: 38px;
+}
+p{
+    font-size: 28px;
+    flex: 1;
+}
+.text{
+    background: black;
+    text-align: center;
+    
+}
+.head{
+    border-radius: 9px;
+    text-align: center;
+    background: black;
+    width: 400px;
+    border: solid;
+    border-color: white;
+    margin-top: 40px;
+}
+.ch{
+    background: black;
+    border: solid;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px;
+    flex: 1 1 auto;
+}
+.choice{
+    background-color: black;
+    display: flex;
+    gap: 65px;
+}
+.scores{
+    
+    display: none;
+    visibility: hidden;
+    
+}
+.scores.show{
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    visibility: visible;
+    margin-top: 90px;
+}
+.you,
+.computer{
+    font-size: 100px;
+}
+.ss{
+    display: flex;
+    gap: 100px;
+}
