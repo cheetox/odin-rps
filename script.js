@@ -29,43 +29,77 @@ window.onload=function(){
     const result=document.createElement('h2');
     const you=document.querySelector('.you');
     const computer=document.querySelector('.computer');
+    scores.classList.add('show');
     scores.appendChild(result);
 
     
     blocks.forEach((block) =>{
         block.addEventListener('click',()=>{
             
-            
-            
-            
-            
-            const computerSelection=computerPlay();
-            const res=singleRound(block.id,computerSelection);
-            if(res==0){
+            if(playerScore<5 && computerScore<5){
+                const computerSelection=computerPlay();
+                const res=singleRound(block.id,computerSelection);
+                if(res==0){
                 playerScore++;
-                result.textContent=`You won! ${block.id} beats ${computerSelection}`;
+                if(playerScore===5){
+                    result.textContent='You WON! Click to play again?';
+                    
+                    
+                    scores.appendChild(result);
+                    result.addEventListener('click',()=>{
+                        playerScore=0;
+                        computerScore=0;
+                        you.textContent=playerScore;
+                    computer.textContent=computerScore;
+                        console.log(playerScore);
+                    });
+                    
+    
+                }else{
+                    result.textContent=`You won! ${block.id} beats ${computerSelection}`;
+                }
+                
                
                 
+                }
+                else if(res==1){
+                    computerScore++;
+                    if(computerScore===5){
+                        result.textContent='You LOST! Click to play again?';
+                    
+                    
+                    scores.appendChild(result);
+                    result.addEventListener('click',()=>{
+                        playerScore=0;
+                        computerScore=0;
+                        you.textContent=playerScore;
+                    computer.textContent=computerScore;
+                        console.log(playerScore);
+                    });
+                    }
+                    else{
+                        result.textContent= `You lost! ${computerSelection} beats ${block.id}`;
+                    }
+                    
+                   
+                
+                }else if(res==2){
+                    result.textContent="It's a tie!";
+                
+                } 
+                you.textContent=playerScore;
+                computer.textContent=computerScore;
+            }else{
+                return;
             }
-            else if(res==1){
-                computerScore++;
-                result.textContent= `You lost! ${computerSelection} beats ${block.id}`;
-                
-            }else if(res==2){
-                result.textContent="It's a tie!";
-                
-            } 
             
-            if(playerScore===5){
-                result.textContent='You WON!';
-                scores.appendChild(result);
-            }else if(computerScore===5){
-                result.textContent='You LOST!';
-                
-            }
-            you.textContent=playerScore;
-            computer.textContent=computerScore;
-            scores.classList.add('show');
+            
+            
+            
+            
+            
+            
+            
             
         })
     })
